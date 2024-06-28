@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='dist/css/output.css')}}">
+</head>
+<body class="">
+    <div class="w-screen h-screen bg-gradient-to-r from-blue-700 via-lime-600 via-pink-500">
+        <div class="absolute top-2/4 left-2/4 -translate-x-2/4 -translate-y-2/4 p-5 bg-orange-300 " style="/* From https://css.glass */
+background: rgba(255, 255, 255, 0.2);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(5px);
+-webkit-backdrop-filter: blur(5px);
+border: 1px solid rgba(255, 255, 255, 0.3);">
+        <h1 class="font-mono text-3xl mb-5 text-white text-center font-bold">PREDIKSI KELAS RAISIN</h1>
+        <form class="mx-auto grid grid-cols-4 gap-5" method="POST">
+            <div class="mb-5">
+                <label for="area-input" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Area</label>
+                <input type="text" value="{{ area }}" id="area-input" name="area" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+            </div>
+            <div class="mb-5">
+                <label for="perimeter-input" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Perimeter</label>
+                <input type="text" value="{{ perimeter }}" id="perimeter-input" name="perimeter" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+            </div>
+            <div class="mb-5">
+                <label for="major-axis-length-input" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Major Axis Length</label>
+                <input type="text" value="{{ major }}" id="major-axis-length-input" name="major_axis_length" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+            </div>
+            <div class="mb-5">
+                <label for="minor-axis-length-input" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Minor Axis Length</label>
+                <input type="text" value="{{ minor }}" id="minor-axis-length-input" name="minor_axis_length" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+            </div>
+            <div class="mb-5">
+                <label for="aspect-ratio-input" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Aspect Ratio</label>
+                <input type="text" value="{{ ratio }}" id="aspect-ratio-input" name="aspect_ratio" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+            </div>
+            <div class="mb-5">
+                <label for="eccentricity-input" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Eccentricity</label>
+                <input type="text" value="{{ ecc }}" id="eccentricity-input" name="eccentricity" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+            </div>
+            <div class="mb-5">
+                <label for="convex-area-input" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Convex Area</label>
+                <input type="text" value="{{ convex }}" id="convex-area-input" name="convex_area" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+            </div>
+            <div class="mb-5">
+                <label for="equiv-diameter-input" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Equiv Diameter</label>
+                <input type="text" value="{{ diameter }}" id="equiv-diameter-input" name="equiv_diameter" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+            </div>
+            <div class="mb-5">
+                <label for="extent-input" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Extent</label>
+                <input type="text" value="{{ extent }}" id="extent-input" name="extent" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+            </div>
+            <div class="mb-5">
+                <label for="solidity-input" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Solidity</label>
+                <input type="text" value="{{ solidity }}" id="solidity-input" name="solidity" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+            </div>
+            <div class="mb-5">
+                <label for="roundess-input" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Roundess</label>
+                <input type="text" value="{{ roundess }}" id="roundess-input" name="roundess" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+            </div>
+            <div class="mb-5">
+                <label for="compactness-input" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Compactness</label>
+                <input type="text" value="{{ compactness }}" id="compactness-input" name="compactness" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+            </div>
+            <div class="mb-5">
+                <label for="shape-factor-1-input" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Shape Factor 1</label>
+                <input type="text" value="{{ shape1 }}" id="shape-factor-1-input" name="shape_factor_1" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+            </div>
+            <div class="mb-5">
+                <label for="shape-factor-2-input" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Shape Factor 2</label>
+                <input type="text" value="{{ shape2 }}" id="shape-factor-2-input" name="shape_factor_2" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+            </div>
+            <div class="mb-5">
+                <label for="shape-factor-3-input" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Shape Factor 3</label>
+                <input type="text"  value="{{ shape3 }}" id="shape-factor-3-input" name="shape_factor_3" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+            </div>
+            <div class="mb-5">
+                <label for="shape-factor-4-input" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Shape Factor 4</label>
+                <input type="text" value="{{ shape4 }}" id="shape-factor-4-input" name="shape_factor_4" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+            </div>
+            <button type="submit" class=" col-span-2 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Predict</button>
+            <button type="button" class="2 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" onclick="Random()">Random</button>
+            <input type="text" id="base-input" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Hasil" value="{{ result}}" disabled>
+        </form>
+    </div>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+    <script>
+        function getRandomFloat(min, max, decimals) {
+        const str = (Math.random() * (max - min) + min).toFixed(
+            decimals,
+        );
+
+            return parseFloat(str);
+        }
+
+        function Random(){
+            let areaInput = document.getElementById("area-input");
+            let perimeterInput = document.getElementById("perimeter-input");
+            let majorInput = document.getElementById("major-axis-length-input");
+            let minorInput = document.getElementById("minor-axis-length-input");
+            let ratioInput = document.getElementById("aspect-ratio-input");
+            let eccInput = document.getElementById("eccentricity-input");
+            let convexInput = document.getElementById("convex-area-input");
+            let diameterInput = document.getElementById("equiv-diameter-input");
+            let extentInput = document.getElementById("extent-input");
+            let solidityInput = document.getElementById("solidity-input");
+            let roundnessInput = document.getElementById("roundess-input");
+            let compactnessInput = document.getElementById("compactness-input");
+            let shape1Input = document.getElementById("shape-factor-1-input");
+            let shape2Input = document.getElementById("shape-factor-2-input");
+            let shape3Input = document.getElementById("shape-factor-3-input");
+            let shape4Input = document.getElementById("shape-factor-4-input");
+
+            areaInput.value = getRandomFloat(20420, 254616, 3)
+            perimeterInput.value = getRandomFloat(524, 1985, 3)
+            majorInput.value = getRandomFloat(183, 738, 3)
+            minorInput.value = getRandomFloat(122, 460, 3)
+            ratioInput.value = getRandomFloat(1, 2.4, 3)
+            eccInput.value = getRandomFloat(0.2 ,0.9, 3)
+            convexInput.value = getRandomFloat(20684 ,263261, 3)
+            diameterInput.value = getRandomFloat(161 ,569, 3)
+            extentInput.value = getRandomFloat(0.5 ,0.9, 3)
+            solidityInput.value = getRandomFloat(0.900 ,1, 3)
+            roundnessInput.value = getRandomFloat( 0.4,0.9, 3)
+            compactnessInput.value = getRandomFloat( 0.6,1, 3)
+            shape1Input.value = getRandomFloat( 0.0003,0.01, 3)
+            shape2Input.value = getRandomFloat( 0.001,0.004, 3)
+            shape3Input.value = getRandomFloat( 0.40,0.999, 3)
+            shape4Input.value = getRandomFloat( 0.9,1, 3)
+        }
+    </script>
+</body>
+</html>
